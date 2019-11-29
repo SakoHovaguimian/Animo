@@ -6,7 +6,7 @@ final class AnimoTests: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct
         // results.
-        XCTAssertEqual(Animo().text, "Hello, World!")
+        XCTAssertEqual(Animo().test, "Hello, World!")
     }
 
     static var allTests = [
