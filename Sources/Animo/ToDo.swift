@@ -11,7 +11,6 @@ import Foundation
 //Shadow
 //Hex
 //Gradients
-//Alerts
 //Add Image To TextField
 //Keyboard Raises with Notifications
 
@@ -31,5 +30,5 @@ import Foundation
 //MARK:- FINISHED
     /*
         COLORS
-        
+        SIMPLE ALERTS
     */
