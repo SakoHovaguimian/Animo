@@ -25,6 +25,7 @@ extension UIColor {
     public static let soothingGray = UIColor(hex: "#D7D9D7")
     public static let imgurGreen = UIColor(hex: "#3E885B")
     public static let maroon = UIColor(hex: "#EF5B58")
+    public static let eggShell = UIColor(hex: "#EAEFD3")
     
     
     //MARK:- SETS COLOR WITHOUT THE 255 SYNTAX
