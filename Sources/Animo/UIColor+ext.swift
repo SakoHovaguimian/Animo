@@ -13,7 +13,10 @@ extension UIColor {
     
     //MARK:- LIST OF COLORS I LOVE
 
+    //RGB
     public static let skyBlue = setColor(r: 87, g: 154, b: 230)
+    
+    //HEX
     public static let mintGreen = UIColor(hex: "#55efc4")
     public static let regalPurple = UIColor(hex: "#6c5ce7")
     public static let blackishGray = UIColor(hex: "#2d3436")
@@ -30,7 +33,7 @@ extension UIColor {
         return UIColor(displayP3Red: r/255, green: g/255, blue: b/255, alpha: 1)
     }
     
-    //MARK:- USE HEX TO SET COLORS
+    //MARK:- USE HEX TO SET COLORS WITH INIT
     
     public convenience init?(hex: String) {
 
