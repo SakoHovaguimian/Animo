@@ -15,6 +15,7 @@ extension UIColor {
 
     //RGB
     public static let skyBlue = setColor(r: 87, g: 154, b: 230)
+    public static let darkTeal = setColor(r: 0, g: 93, b: 105)
     
     //HEX
     public static let mintGreen = UIColor(hex: "#55efc4")

@@ -12,3 +12,9 @@ import UIKit
 public func prettyPrinted(value: Any) {
     print(value as! NSDictionary)
 }
+
+public func logError(_ message: String, file: String = #file, function: String = #function, line: Int = #line ) {
+    print("\(message) called from \(function) located in file: \(file): line: \(line)")
+}
+
+

@@ -19,10 +19,10 @@ extension UIViewController {
         alert.addAction(dismissAction)
         
         self.present(alert, animated: true, completion: nil)
+        
     }
     
     //MARK:- RAISING VIEW WHEN TEXTFIELD IS CALLED
-    
     
     
 }
