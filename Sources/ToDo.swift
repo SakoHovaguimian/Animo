@@ -8,10 +8,7 @@
 import Foundation
 
 //MARK:- TODO's
-//Shadow
-//Hex
-//Gradients
-//Add Image To TextField
+
 //Keyboard Raises with Notifications
 
 
@@ -29,6 +26,14 @@ import Foundation
 
 //MARK:- FINISHED
     /*
+ 
         COLORS
         SIMPLE ALERTS
+        SHADOWS
+        HEX
+        GRADIENTS
+        ADD IMAGE TO TEXTFIELD
+        SYSTEM LOGGING
+        SYSTEM ERRORS
+            
     */
