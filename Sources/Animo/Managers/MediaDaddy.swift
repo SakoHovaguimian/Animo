@@ -21,6 +21,7 @@ public enum MediaType: String {
             
         }
     }
+
 }
 
 public protocol MediaPickerDelegate: class {
@@ -36,6 +37,7 @@ public class MediaDaddy: NSObject {
     private weak var delegate: MediaPickerDelegate?
     
     public var mediaType: MediaType?
+    public var allowEditing = false
     
     public init(presentationController: UIViewController, delegate: MediaPickerDelegate, mediaType: MediaType) {
         self.pickerController = UIImagePickerController()
@@ -44,9 +46,10 @@ public class MediaDaddy: NSObject {
 
         self.presentationController = presentationController
         self.delegate = delegate
+        self.mediaType = mediaType
     
         self.pickerController.delegate = self
-        self.pickerController.allowsEditing = true
+        self.pickerController.allowsEditing = self.allowEditing
         self.pickerController.mediaTypes = mediaType.chosenMedia
     }
     
@@ -80,32 +83,40 @@ public class MediaDaddy: NSObject {
         self.presentationController?.present(alertController, animated: true)
     }
     
-    private func pickerController(_ controller: UIImagePickerController, didSelect image: UIImage?) {
+    private func imagePickerController(_ controller: UIImagePickerController, didSelect image: UIImage?) {
         controller.dismiss(animated: true, completion: nil)
         
         self.delegate?.didSelect(image: image)
     }
+    
+    private func mediaPickerController(_ controller: UIImagePickerController, didSelect url: URL?) {
+        controller.dismiss(animated: true, completion: nil)
+            
+        self.delegate?.didSelect(meida: url)
+    }
+    
+    
     
 }
 
 extension MediaDaddy: UIImagePickerControllerDelegate {
     
     public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        self.pickerController(picker, didSelect: nil)
+        self.imagePickerController(picker, didSelect: nil)
     }
 
     public func imagePickerController(_ picker: UIImagePickerController,
                                       didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        
         if let video = info[.mediaURL] as? URL {
-            print(video)
+            return self.mediaPickerController(picker, didSelect: video)
         }
         
-        guard let image = info[.editedImage] as? UIImage else {
-            return self.pickerController(picker, didSelect: nil)
+        if let image = info[.editedImage] as? UIImage {
+            return self.imagePickerController(picker, didSelect: image)
         }
         
-        
-        self.pickerController(picker, didSelect: image)
+        self.imagePickerController(picker, didSelect: nil)
     }
 }
 
