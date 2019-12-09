@@ -6,12 +6,18 @@
 //
 
 import UIKit
+import AVFoundation
+import AVKit
 
 extension UIView {
+    
+    //Round Corners If Height/Width Equal
     
     public func rounded() {
         self.layer.cornerRadius = self.frame.height / 2
     }
+    
+    //Add A Simple Shadow
     
     public func addShadow(shadow color: UIColor, opacity: Float, offSet: CGSize, raidus: CGFloat) {
         
@@ -22,6 +28,8 @@ extension UIView {
         self.layer.shadowRadius = raidus
         
     }
+    
+    //Add A Simple Gradient
     
     public func simpleGradient(colors: [UIColor]) {
         
@@ -35,5 +43,41 @@ extension UIView {
         self.layer.insertSublayer(gradientLayer, at: 0)
         
     }
+    
+    //Add Videos To Subview
+    
+    func playVideoFromPath(path: String, extType: String, player: AVPlayer, videoView: UIView, loop: Bool) {
+        
+        if let filePath = Bundle.main.path(forResource: path, ofType: extType) {
+            
+            let url = URL(fileURLWithPath: filePath)
+            
+            player.replaceCurrentItem(with: AVPlayerItem(url: url))
+            
+            let playerLayer = AVPlayerLayer(player: player)
+            playerLayer.position = .zero
+            playerLayer.frame = videoView.bounds
+            playerLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+
+            
+            if loop == true {
+                
+                NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: player.currentItem, queue: nil) { (_) in
+                    player.seek(to: .zero)
+                    player.play()
+                }
+                
+            }
+
+            
+            videoView.layer.addSublayer(playerLayer)
+            player.play()
+            
+        }
+        
+        self.addSubview(videoView)
+        
+    }
+    
     
 }
