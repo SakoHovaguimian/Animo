@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class CommonViewController: UIViewController {
+open class CommonViewController: UIViewController {
     
     //MARK:- RAISING VIEW WHEN TEXTFIELD IS CALLED
     
