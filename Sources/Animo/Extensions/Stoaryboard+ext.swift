@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol Storyboarded {
+public protocol Storyboarded {
     static func instantiate(nameOf storyboard: String) -> Self
 }
 
