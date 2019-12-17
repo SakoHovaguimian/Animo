@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import LocalAuthentication
 
 extension UIViewController {
     
@@ -22,5 +23,29 @@ extension UIViewController {
         
     }
     
+    public func requestFacialAuthorization(completion: @escaping (Bool) -> ()) {
+        
+        let context = LAContext()
+        var error: NSError?
+
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+            let reason = "Must be used to authorize you"
+
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) {
+               success, authenticationError in
+
+                DispatchQueue.main.async {
+                    if success {
+                        completion(true)
+                    } else {
+                        completion(false)
+                    }
+                }
+            }
+        } else {
+            completion(false)
+        }
+        
+    }
     
 }
