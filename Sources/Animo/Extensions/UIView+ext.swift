@@ -16,6 +16,16 @@ extension UIView {
     public func rounded() {
         self.layer.cornerRadius = self.frame.height / 2
     }
+
+    /// Make sure to call `LayoutSubViewsIfNeeded()`.
+    /// This takes an array of corners to hate your designer a little less.
+    public func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
+        if #available(iOS 11.0, *) {
+            self.clipsToBounds = true
+            self.layer.cornerRadius = radius
+            self.layer.maskedCorners = CACornerMask(rawValue: corners.rawValue)
+        }
+    }
     
     //Add A Simple Shadow
     
