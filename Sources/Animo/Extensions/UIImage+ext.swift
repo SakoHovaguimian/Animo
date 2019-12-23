@@ -29,4 +29,22 @@ extension UIImage {
         
     }
     
+    //Resize Image
+    public func resized(toWidth width: CGFloat) -> UIImage? {
+        
+      let canvasSize = CGSize(width: width, height: CGFloat(ceil(width/size.width * size.height)))
+      UIGraphicsBeginImageContextWithOptions(canvasSize, false, scale)
+      defer { UIGraphicsEndImageContext() }
+      draw(in: CGRect(origin: .zero, size: canvasSize))
+      return UIGraphicsGetImageFromCurrentImageContext()
+        
+    }
+    
+    //Convert Image To Base64
+    public func convertImageToBase64(compression: CGFloat) -> String {
+        let imageData = self.jpegData(compressionQuality: compression)!
+        return (imageData.base64EncodedString(options: Data.Base64EncodingOptions.lineLength64Characters))
+    }
+
+    
 }

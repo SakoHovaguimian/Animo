@@ -56,7 +56,7 @@ extension UIView {
     
     //Add Videos To Subview
     
-    func playVideoFromPath(path: String, extType: String, player: AVPlayer, videoView: UIView, loop: Bool) {
+    public func playVideoFromPath(path: String, extType: String, player: AVPlayer, videoView: UIView, loop: Bool) {
         
         if let filePath = Bundle.main.path(forResource: path, ofType: extType) {
             
