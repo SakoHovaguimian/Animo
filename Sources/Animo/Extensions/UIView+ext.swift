@@ -54,6 +54,22 @@ extension UIView {
         
     }
     
+    /// Make sure to call `LayoutSubViewsIfNeeded()`.
+    public func addBottomBorder(color: UIColor) {
+        
+        if let textView = self as? UITextField {
+            textView.borderStyle = UITextField.BorderStyle.none
+        }
+        
+        self.backgroundColor = UIColor.clear
+        let width: CGFloat = 1.0
+        
+        let borderLine = UIView(frame: CGRect(x: 0, y: self.frame.height - width, width: self.frame.width, height: width))
+        borderLine.backgroundColor = color
+        self.addSubview(borderLine)
+        
+    }
+    
     //Add Videos To Subview
     
     public func playVideoFromPath(path: String, extType: String, player: AVPlayer, videoView: UIView, loop: Bool) {
