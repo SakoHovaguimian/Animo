@@ -26,5 +26,18 @@ extension UITextField {
         
     }
     
+    public func areFieldsEmpty() -> Bool {
+        
+        guard self.text?.isEmpty == true else {
+            self.layer.borderWidth = 0.0
+            return false
+        }
+        
+        self.layer.borderColor = UIColor.systemRed.cgColor
+        self.layer.borderWidth = 2.0
+        
+        return true
+        
+    }
     
 }

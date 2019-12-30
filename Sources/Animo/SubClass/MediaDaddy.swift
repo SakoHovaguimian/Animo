@@ -120,6 +120,4 @@ extension MediaDaddy: UIImagePickerControllerDelegate {
     }
 }
 
-extension MediaDaddy: UINavigationControllerDelegate {
-    
-}
+extension MediaDaddy: UINavigationControllerDelegate { }
