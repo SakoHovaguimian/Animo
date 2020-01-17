@@ -105,5 +105,72 @@ extension UIView {
         
     }
     
+    //MARK:- CONSTRAINT HELPER
+    
+    @available(iOS 9.0, *)
+    public func anchor(top: NSLayoutYAxisAnchor? = nil,
+                left: NSLayoutXAxisAnchor? = nil,
+                bottom: NSLayoutYAxisAnchor? = nil,
+                right: NSLayoutXAxisAnchor? = nil,
+                paddingTop: CGFloat = 0,
+                paddingLeft: CGFloat = 0,
+                paddingBottom: CGFloat = 0,
+                paddingRight: CGFloat = 0,
+                width: CGFloat? = nil,
+                height: CGFloat? = nil) {
+        
+        self.translatesAutoresizingMaskIntoConstraints = false
+        
+        if let top = top {
+            topAnchor.constraint(equalTo: top, constant: paddingTop).isActive = true
+        }
+        
+        if let left = left {
+            leftAnchor.constraint(equalTo: left, constant: paddingLeft).isActive = true
+        }
+        
+        if let bottom = bottom {
+            bottomAnchor.constraint(equalTo: bottom, constant: -paddingBottom).isActive = true
+        }
+        
+        if let right = right {
+            rightAnchor.constraint(equalTo: right, constant: -paddingRight).isActive = true
+        }
+        
+        if let height = height {
+            heightAnchor.constraint(equalToConstant: height).isActive = true
+        }
+        
+        if let width = width {
+            widthAnchor.constraint(equalToConstant: width).isActive = true
+        }
+        
+    }
+    
+    @available(iOS 9.0, *)
+    public func centerX(inView view: UIView, constant: CGFloat = 0) {
+        self.translatesAutoresizingMaskIntoConstraints = false
+        centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+    }
+    
+    @available(iOS 9.0, *)
+    public func centerY(inView view: UIView, constant: CGFloat = 0, leftAnchor: NSLayoutXAxisAnchor? = nil, paddingLeft: CGFloat = 0) {
+        
+        self.translatesAutoresizingMaskIntoConstraints = false
+        centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: constant).isActive = true
+        
+        if let leftAnchor = leftAnchor {
+            anchor(left: leftAnchor, paddingLeft: paddingLeft)
+        }
+        
+    }
+    
+    @available(iOS 9.0, *)
+    public func setDimmensions(height: CGFloat, width: CGFloat) {
+        self.translatesAutoresizingMaskIntoConstraints = false
+        self.heightAnchor.constraint(equalToConstant: height).isActive = true
+        self.widthAnchor.constraint(equalToConstant: width).isActive = true
+    }
+    
     
 }

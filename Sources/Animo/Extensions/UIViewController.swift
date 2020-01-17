@@ -48,4 +48,60 @@ extension UIViewController {
         
     }
     
+    //MARK:- CONSTRAINT HELPER
+    
+    
+    
+    //MARK:- SIMPLE ACTIVITY INDICATOR
+    
+    @available(iOS 13.0, *)
+    public func shouldPresentLoadingView(_ present: Bool, message: String? = nil) {
+        
+        if present {
+            
+            let loadingView = UIView()
+            loadingView.frame = self.view.frame
+            loadingView.backgroundColor = .black
+            loadingView.alpha = 0
+            loadingView.tag = 1
+            
+            let indicator = UIActivityIndicatorView()
+            indicator.style = .large
+            indicator.color = .white
+            indicator.center = self.view.center
+            
+            let label = UILabel()
+            label.text = message
+            label.font = UIFont.systemFont(ofSize: 20.0)
+            label.textColor = .white
+            label.textAlignment = .center
+            label.alpha = 0.87
+            
+            self.view.addSubview(loadingView)
+            self.view.addSubview(indicator)
+            self.view.addSubview(label)
+            
+            label.centerX(inView: self.view)
+            label.anchor(top: indicator.bottomAnchor, paddingTop: 32)
+            
+            UIView.animate(withDuration: 0.3) {
+                loadingView.alpha = 0.7
+            }
+            
+        } else {
+            
+            self.view.subviews.forEach({ (subview) in
+                if subview.tag == 1 {
+                    UIView.animate(withDuration: 0.3, animations: {
+                        subview.alpha = 0
+                    }) { (_) in
+                        subview.removeFromSuperview()
+                    }
+                }
+            })
+            
+        }
+        
+    }
+    
 }
