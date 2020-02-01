@@ -21,38 +21,10 @@ public func logError(_ message: String, file: String = #file, function: String =
     print("\(message) called from \(function) located in file: \(file): line: \(line) 🔚🔚🔚🔚")
 }
 
-//MARK:- PARSE PLIST
-public func getPlist<T>(withName name: String) -> [T]? {
-    
-    if  let path = Bundle.main.path(forResource: name, ofType: "plist"),
-        let xml = FileManager.default.contents(atPath: path) {
-        
-        return (try? PropertyListSerialization.propertyList(from: xml, options: .mutableContainersAndLeaves, format: nil)) as? [T]
-    }
-
-    return nil
-    
+public func logSuccess(_ message: String) {
+    print("✅✅✅✅✅✅ \(message)")
 }
 
-//MARK:- ADD TO PLIST
-public func addToPlist<T: Encodable>(_ plist: String, type: T) {
-    
-    let encoder = PropertyListEncoder()
-    encoder.outputFormat = .xml
-
-    let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(plist)
-
-    do {
-        
-        let data = try encoder.encode(type.self)
-        try data.write(to: path)
-        
-    } catch {
-        
-        print(error)
-    }
-    
-}
 
 
 

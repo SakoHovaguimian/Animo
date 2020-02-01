@@ -78,8 +78,8 @@ extension UIViewController {
             label.alpha = 0.87
             
             self.view.addSubview(loadingView)
-            self.view.addSubview(indicator)
-            self.view.addSubview(label)
+            loadingView.addSubview(indicator)
+            loadingView.addSubview(label)
             
             label.centerX(inView: self.view)
             label.anchor(top: indicator.bottomAnchor, paddingTop: 32)
