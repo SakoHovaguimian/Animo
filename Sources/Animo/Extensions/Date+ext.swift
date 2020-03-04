@@ -44,4 +44,11 @@ extension Date {
          
       }
     
+    @available(iOS 13.0, *)
+    static public func timeBetween(_ date1: Date, _ date2: Date, unitStyle: RelativeDateTimeFormatter.UnitsStyle) -> String {
+        let formatter = RelativeDateTimeFormatter()
+        formatter.unitsStyle = unitStyle
+        return formatter.localizedString(for: date1, relativeTo: date2)
+    }
+    
 }

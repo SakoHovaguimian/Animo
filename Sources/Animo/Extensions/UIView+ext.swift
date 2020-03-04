@@ -172,5 +172,11 @@ extension UIView {
         self.widthAnchor.constraint(equalToConstant: width).isActive = true
     }
     
+    @available(iOS 9.0, *)
+    public func addConstraintsToFillView(_ view: UIView) {
+        self.translatesAutoresizingMaskIntoConstraints = false
+        self.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor)
+    }
+    
     
 }

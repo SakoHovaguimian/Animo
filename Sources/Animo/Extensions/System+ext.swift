@@ -25,6 +25,10 @@ public func logSuccess(_ message: String) {
     print("✅✅✅✅✅✅ \(message)")
 }
 
+public func logDebugMessage(_ message: String) {
+    print("DEBUG: \(message)")
+}
+
 
 
 
