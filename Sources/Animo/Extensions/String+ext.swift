@@ -31,5 +31,26 @@ extension String {
         }
         
     }
+  
+    
+    public func customAttributedString(_ text1: String, _ text2: String,
+                                       font1: UIFont? = nil, font2: UIFont? = nil,
+                                       font1Size: CGFloat, font2Size: CGFloat,
+                                       color1: UIColor? = nil, color2: UIColor? = nil) -> NSAttributedString {
+        
+        let attributedString = NSAttributedString(string: text1,
+                                                  attributes:[.foregroundColor: color1 ?? .black,
+                                                      .font: font1 ?? UIFont.systemFont(ofSize: font1Size)])
+        
+        let attributedString2 = NSAttributedString(string: text2,
+                                                   attributes:[.foregroundColor: color2 ?? .lightGray,
+                                                                      .font: font2 ?? UIFont.systemFont(ofSize: font2Size)])
+        let combination = NSMutableAttributedString()
+        combination.append(attributedString)
+        combination.append(attributedString2)
+        
+        return combination
+        
+    }
     
 }
