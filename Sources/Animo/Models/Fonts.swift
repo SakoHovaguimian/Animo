@@ -12,7 +12,7 @@ public enum Font: String {
     case GAMEFONT_LIGHT = "PressStart2P"
     case OTHER_FONT = "Something"
     
-    func font(_ size: CGFloat) -> UIFont? {
+    public func font(_ size: CGFloat) -> UIFont? {
         let name = self.rawValue
         return UIFont(name: name, size: size)
     }
