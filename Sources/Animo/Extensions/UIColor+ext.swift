@@ -36,7 +36,7 @@ extension UIColor {
     
     public static let sexySalmon = UIColor(hex: "#EB3939")
     public static let darkBlue = UIColor(hex: "#072028")
-    public static let darkTeal = UIColor(hex: "#0092A4")
+    public static let midnightTeal = UIColor(hex: "#0092A4")
     public static let lightTeal = UIColor(hex: "#04C3DB")
     
     
