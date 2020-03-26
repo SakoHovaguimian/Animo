@@ -28,6 +28,17 @@ extension UIColor {
     public static let maroon = UIColor(hex: "#EF5B58")
     public static let eggShell = UIColor(hex: "#EAEFD3")
     
+    public static let notSoBlack = UIColor(hex: "#101010")
+    public static let notSoWhite = UIColor(hex: "#E6E6E6")
+    
+    public static let lightSalmon = UIColor(hex: "#E9C0B3")
+    public static let muddyBlue = UIColor(hex: "#6F8E8E")
+    
+    public static let sexySalmon = UIColor(hex: "#EB3939")
+    public static let darkBlue = UIColor(hex: "#072028")
+    public static let darkTeal = UIColor(hex: "#0092A4")
+    public static let lightTeal = UIColor(hex: "#04C3DB")
+    
     
     //MARK:- SETS COLOR WITHOUT THE 255 SYNTAX
     
