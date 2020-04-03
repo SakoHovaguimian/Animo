@@ -69,6 +69,7 @@ extension UIViewController {
             indicator.style = .large
             indicator.color = .white
             indicator.center = self.view.center
+            indicator.startAnimating()
             
             let label = UILabel()
             label.text = message
