@@ -86,7 +86,7 @@ extension UIViewController {
             label.anchor(top: indicator.bottomAnchor, paddingTop: 32)
             
             UIView.animate(withDuration: 0.3) {
-                loadingView.alpha = 0.7
+                loadingView.alpha = alpha
             }
             
         } else {
@@ -94,7 +94,7 @@ extension UIViewController {
             self.view.subviews.forEach({ (subview) in
                 if subview.tag == 1 {
                     UIView.animate(withDuration: 0.3, animations: {
-                        subview.alpha = alpha
+                        subview.alpha = 0.0
                     }) { (_) in
                         subview.removeFromSuperview()
                     }
