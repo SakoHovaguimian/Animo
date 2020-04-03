@@ -55,7 +55,7 @@ extension UIViewController {
     //MARK:- SIMPLE ACTIVITY INDICATOR
     
     @available(iOS 13.0, *)
-    public func shouldPresentLoadingView(_ present: Bool, message: String? = nil) {
+    public func shouldPresentLoadingView(_ present: Bool, message: String? = nil, alpha: CGFloat = 0.7) {
         
         if present {
             
@@ -94,7 +94,7 @@ extension UIViewController {
             self.view.subviews.forEach({ (subview) in
                 if subview.tag == 1 {
                     UIView.animate(withDuration: 0.3, animations: {
-                        subview.alpha = 0
+                        subview.alpha = alpha
                     }) { (_) in
                         subview.removeFromSuperview()
                     }
