@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SpinningCircleView: UIView {
+public class SpinningCircleView: UIView {
     
     public let spinningCircle = CAShapeLayer()
     
