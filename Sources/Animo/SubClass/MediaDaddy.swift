@@ -116,6 +116,10 @@ extension MediaDaddy: UIImagePickerControllerDelegate {
             return self.imagePickerController(picker, didSelect: image)
         }
         
+        if let image = info[.originalImage] as? UIImage {
+            return self.imagePickerController(picker, didSelect: image)
+        }
+        
         self.imagePickerController(picker, didSelect: nil)
     }
 }
