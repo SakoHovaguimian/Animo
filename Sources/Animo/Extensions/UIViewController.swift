@@ -63,7 +63,7 @@ extension UIViewController {
             loadingView.frame = self.view.frame
             loadingView.backgroundColor = .black
             loadingView.alpha = 0
-            loadingView.tag = 1
+            loadingView.tag = 1000
             
             let indicator = UIActivityIndicatorView()
             indicator.style = .large
@@ -92,7 +92,7 @@ extension UIViewController {
         } else {
             
             self.view.subviews.forEach({ (subview) in
-                if subview.tag == 1 {
+                if subview.tag == 1000 {
                     UIView.animate(withDuration: 0.3, animations: {
                         subview.alpha = 0.0
                     }) { (_) in
