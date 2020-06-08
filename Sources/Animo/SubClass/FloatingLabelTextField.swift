@@ -10,7 +10,12 @@ import UIKit
 public class FloatingLabelTextField: UITextField {
     
     public var floatingLabel: UILabel!
-    public var placeHolderText: String?
+    
+    public var placeHolderText: String? {
+        didSet {
+            self.floatingLabel.text = self.placeHolderText
+        }
+    }
     
     public var floatingLabelColor: UIColor = UIColor.blue {
         didSet {
@@ -38,9 +43,7 @@ public class FloatingLabelTextField: UITextField {
     
     private func configure() {
         
-        self.translatesAutoresizingMaskIntoConstraints = false
-        
-        let flotingLabelFrame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
+        let flotingLabelFrame = CGRect(x: 0, y: 0, width: frame.width, height: 0)
         
         floatingLabel = UILabel(frame: flotingLabelFrame)
         floatingLabel.textColor = floatingLabelColor
