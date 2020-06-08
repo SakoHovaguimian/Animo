@@ -14,6 +14,7 @@ public class FloatingLabelTextField: UITextField {
     public var placeHolderText: String? {
         didSet {
             self.floatingLabel.text = self.placeHolderText
+            self.placeholder = placeHolderText
         }
     }
     
