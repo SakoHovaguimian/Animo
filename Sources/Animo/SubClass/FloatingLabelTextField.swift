@@ -26,8 +26,23 @@ public class FloatingLabelTextField: UITextField {
     
     public var floatingLabelHeight: CGFloat = 30
     
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        let flotingLabelFrame = CGRect(x: 0, y: 0, width: frame.width, height: 0)
+        
+        floatingLabel = UILabel(frame: flotingLabelFrame)
+        floatingLabel.textColor = floatingLabelColor
+        floatingLabel.font = floatingLabelFont
+        floatingLabel.text = self.placeholder
+        
+        self.addSubview(floatingLabel)
+        placeHolderText = placeholder
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidBeginEditing), name: UITextField.textDidBeginEditingNotification, object: self)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidEndEditing), name: UITextField.textDidEndEditingNotification, object: self)
+
     }
     
     public required init?(coder aDecoder: NSCoder) {
