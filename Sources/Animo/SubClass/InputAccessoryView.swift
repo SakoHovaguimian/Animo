@@ -31,6 +31,7 @@ public class InputAccessoryView: UIToolbar {
     public convenience init(items typeArray: [InputAccessoryItemType], textField: UITextField, delegate: InputAccessoryViewDelegate?) {
         self.init()
         self.sizeToFit()
+        self.translatesAutoresizingMaskIntoConstraints = false
         self.setUpItems(types: typeArray)
         self.customDelegate = delegate
         self.textField = textField
