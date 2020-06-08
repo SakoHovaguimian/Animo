@@ -38,7 +38,9 @@ public class FloatingLabelTextField: UITextField {
     
     private func configure() {
         
-        let flotingLabelFrame = CGRect(x: 0, y: 0, width: frame.width, height: 0)
+        self.translatesAutoresizingMaskIntoConstraints = false
+        
+        let flotingLabelFrame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
         
         floatingLabel = UILabel(frame: flotingLabelFrame)
         floatingLabel.textColor = floatingLabelColor
