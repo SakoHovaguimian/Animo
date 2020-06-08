@@ -30,7 +30,7 @@ public class FloatingLabelTextField: UITextField {
         super.init(frame: frame)
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         
         super.init(coder: aDecoder)
         
