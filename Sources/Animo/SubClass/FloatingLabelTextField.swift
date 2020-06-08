@@ -9,8 +9,8 @@ import UIKit
 
 public class FloatingLabelTextField: UITextField {
     
-    private var floatingLabel: UILabel!
-    private var placeHolderText: String?
+    public var floatingLabel: UILabel!
+    public var placeHolderText: String?
     
     public var floatingLabelColor: UIColor = UIColor.blue {
         didSet {
@@ -28,26 +28,15 @@ public class FloatingLabelTextField: UITextField {
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        let flotingLabelFrame = CGRect(x: 0, y: 0, width: frame.width, height: 0)
-        
-        floatingLabel = UILabel(frame: flotingLabelFrame)
-        floatingLabel.textColor = floatingLabelColor
-        floatingLabel.font = floatingLabelFont
-        floatingLabel.text = self.placeholder
-        
-        self.addSubview(floatingLabel)
-        placeHolderText = placeholder
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidBeginEditing), name: UITextField.textDidBeginEditingNotification, object: self)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidEndEditing), name: UITextField.textDidEndEditingNotification, object: self)
-
+        self.configure()
     }
     
     public required init?(coder aDecoder: NSCoder) {
-        
         super.init(coder: aDecoder)
+        self.configure()
+    }
+    
+    private func configure() {
         
         let flotingLabelFrame = CGRect(x: 0, y: 0, width: frame.width, height: 0)
         
@@ -62,7 +51,6 @@ public class FloatingLabelTextField: UITextField {
         NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidBeginEditing), name: UITextField.textDidBeginEditingNotification, object: self)
         
         NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidEndEditing), name: UITextField.textDidEndEditingNotification, object: self)
-        
         
     }
     
