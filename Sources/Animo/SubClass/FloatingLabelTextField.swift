@@ -44,6 +44,9 @@ public class FloatingLabelTextField: UITextField {
     
     private func configure() {
         
+        self.floatingLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.translatesAutoresizingMaskIntoConstraints = false
+        
         let flotingLabelFrame = CGRect(x: 0, y: 0, width: frame.width, height: 0)
         
         floatingLabel = UILabel(frame: flotingLabelFrame)
