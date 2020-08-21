@@ -57,9 +57,15 @@ public class FloatingLabelTextField: UITextField {
         self.addSubview(floatingLabel)
         placeHolderText = placeholder
         
-        NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidBeginEditing), name: UITextField.textDidBeginEditingNotification, object: self)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(textFieldDidBeginEditing),
+                                               name: UITextField.textDidBeginEditingNotification,
+                                               object: self)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidEndEditing), name: UITextField.textDidEndEditingNotification, object: self)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(textFieldDidEndEditing),
+                                               name: UITextField.textDidEndEditingNotification,
+                                               object: self)
         
     }
     
@@ -67,7 +73,10 @@ public class FloatingLabelTextField: UITextField {
         
         if self.text == "" {
             UIView.animate(withDuration: 0.3) {
-                self.floatingLabel.frame = CGRect(x: 0, y: -self.floatingLabelHeight, width: self.frame.width, height: self.floatingLabelHeight)
+                self.floatingLabel.frame = CGRect(x: 0,
+                                                  y: -self.floatingLabelHeight,
+                                                  width: self.frame.width,
+                                                  height: self.floatingLabelHeight)
             }
             self.placeholder = ""
         }

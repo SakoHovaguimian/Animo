@@ -16,14 +16,26 @@ public class CommonViewController: UIViewController {
     public var keyboardHeight: CGFloat = -1 //The value of how high the keyboard is raised
     
     public func keyboardSetup() {
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.keyboardWillShow),
+                                               name: UIResponder.keyboardWillShowNotification,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.keyboardWillHide),
+                                               name: UIResponder.keyboardWillHideNotification,
+                                               object: nil)
     }
     
     ///Meant to be used with `activeTextField`. Assign your textfield as `active` and watch this baby work
     public func dynamicKeyboardSetup() {
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillRaiseDynamically(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.keyboardWillRaiseDynamically(notification:)),
+                                               name: UIResponder.keyboardWillShowNotification,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillHide),
+                                               name: UIResponder.keyboardWillHideNotification,
+                                               object: nil)
     }
 
     @objc private func keyboardWillShow(notification: NSNotification) {
@@ -47,7 +59,8 @@ public class CommonViewController: UIViewController {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             
             let keyboardHeight = keyboardSize.height
-            let activeTextFieldMaxY = (activeTextField!.superview?.convert(activeTextField!.frame.origin, to: self.view).y)! + activeTextField!.frame.height
+            let activeTextFieldMaxY = (activeTextField!.superview?.convert(activeTextField!.frame.origin,
+                                                                           to: self.view).y)! + activeTextField!.frame.height
             let visibleMaxY = self.view.frame.height - keyboardHeight
             
             if activeTextFieldMaxY > visibleMaxY {

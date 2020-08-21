@@ -112,7 +112,9 @@ public class UPCarouselFlowLayout: UICollectionViewFlowLayout {
         return attributes
     }
     
-    override open func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
+    override open func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint,
+                                           withScrollingVelocity velocity: CGPoint) -> CGPoint {
+        
         guard let collectionView = collectionView , !collectionView.isPagingEnabled,
             let layoutAttributes = self.layoutAttributesForElements(in: collectionView.bounds)
             else { return super.targetContentOffset(forProposedContentOffset: proposedContentOffset) }

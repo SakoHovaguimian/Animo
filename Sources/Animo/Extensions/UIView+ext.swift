@@ -145,12 +145,15 @@ extension UIView {
             widthAnchor.constraint(equalToConstant: width).isActive = true
         }
         
+        self.layoutIfNeeded()
+        
     }
     
     @available(iOS 9.0, *)
     public func centerX(inView view: UIView, constant: CGFloat = 0) {
         self.translatesAutoresizingMaskIntoConstraints = false
         centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        self.layoutIfNeeded()
     }
     
     @available(iOS 9.0, *)
@@ -163,6 +166,8 @@ extension UIView {
             anchor(left: leftAnchor, paddingLeft: paddingLeft)
         }
         
+        self.layoutIfNeeded()
+        
     }
     
     @available(iOS 9.0, *)
@@ -170,12 +175,14 @@ extension UIView {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.heightAnchor.constraint(equalToConstant: height).isActive = true
         self.widthAnchor.constraint(equalToConstant: width).isActive = true
+        self.layoutIfNeeded()
     }
     
     @available(iOS 9.0, *)
     public func addConstraintsToFillView(_ view: UIView) {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor)
+        self.layoutIfNeeded()
     }
     
     

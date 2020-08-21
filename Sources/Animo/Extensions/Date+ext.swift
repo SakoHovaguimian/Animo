@@ -9,7 +9,6 @@ import Foundation
 
 extension Date {
     
-    
     static public func currentTime(_ format: String) -> String {
          
         let now = Date()

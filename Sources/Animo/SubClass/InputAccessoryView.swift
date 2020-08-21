@@ -28,7 +28,9 @@ public class InputAccessoryView: UIToolbar {
     public weak var customDelegate: InputAccessoryViewDelegate?
     public var textField: UITextField?
 
-    public convenience init(items typeArray: [InputAccessoryItemType], textField: UITextField, delegate: InputAccessoryViewDelegate?) {
+    public convenience init(items typeArray: [InputAccessoryItemType],
+                            textField: UITextField,
+                            delegate: InputAccessoryViewDelegate?) {
         self.init()
         self.sizeToFit()
         self.translatesAutoresizingMaskIntoConstraints = false
@@ -59,9 +61,15 @@ public class InputAccessoryView: UIToolbar {
     private func getNextItem() -> UIBarButtonItem {
         var item: UIBarButtonItem
         if #available(iOS 13.0, *) {
-            item = UIBarButtonItem(image: UIImage(systemName: "chevron.down"), style: .done, target: self, action: #selector(didTapNextButton(_:)))
+            item = UIBarButtonItem(image: UIImage(systemName: "chevron.down"),
+                                   style: .done,
+                                   target: self,
+                                   action: #selector(didTapNextButton(_:)))
         } else {
-            item = UIBarButtonItem(image: UIImage(named: "chevron.down"), style: .done, target: self, action: #selector(didTapNextButton(_:)))
+            item = UIBarButtonItem(image: UIImage(named: "chevron.down"),
+                                   style: .done,
+                                   target: self,
+                                   action: #selector(didTapNextButton(_:)))
         }
         return item
     }
@@ -69,20 +77,33 @@ public class InputAccessoryView: UIToolbar {
     private func getPreviousItem() -> UIBarButtonItem {
         var item: UIBarButtonItem
         if #available(iOS 13.0, *) {
-            item = UIBarButtonItem(image: UIImage(systemName: "chevron.up"), style: .done, target: self, action: #selector(didTapPreviousButton(_:)))
+            item = UIBarButtonItem(image: UIImage(systemName: "chevron.up"),
+                                   style: .done,
+                                   target: self,
+                                   action: #selector(didTapPreviousButton(_:)))
         } else {
-            item = UIBarButtonItem(image: UIImage(named: "chevron.up"), style: .done , target: self, action: #selector(didTapPreviousButton(_:)))
+            item = UIBarButtonItem(image: UIImage(named: "chevron.up"),
+                                   style: .done,
+                                   target: self,
+                                   action: #selector(didTapPreviousButton(_:)))
         }
         return item
     }
 
     private func getReturnItem() -> UIBarButtonItem {
-        return UIBarButtonItem(title: "Return", style: .done, target: self, action: #selector(didTapReturnButton(_:)))
+        return UIBarButtonItem(title: "Return",
+                               style: .done,
+                               target: self,
+                               action: #selector(didTapReturnButton(_:)))
     }
 
     private func getDoneItem() -> UIBarButtonItem {
-        return UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(didTapDoneButton(_:)))
+        return UIBarButtonItem(barButtonSystemItem: .done,
+                               target: self,
+                               action: #selector(didTapDoneButton(_:)))
     }
+    
+    //Button Actions
 
     @objc func didTapPreviousButton(_ sender: Any) {
         guard let textField = self.textField else {
