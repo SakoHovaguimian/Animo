@@ -7,8 +7,12 @@
 
 import UIKit
 
+public enum GradientOrientation {
+    case vertical
+    case horizontal
+}
+
 extension UIImage {
-    
     
     //Extract Average Color From Image, Deafults To Background Color If NIL
     public func extractImageColor(backupColor: UIColor) -> UIColor? {
@@ -44,6 +48,25 @@ extension UIImage {
     public func convertImageToBase64(compression: CGFloat) -> String {
         let imageData = self.jpegData(compressionQuality: compression)!
         return (imageData.base64EncodedString(options: Data.Base64EncodingOptions.lineLength64Characters))
+    }
+    
+    public convenience init?(bounds: CGRect, colors: [UIColor], orientation: GradientOrientation = .horizontal) {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = bounds
+        gradientLayer.colors = colors.map({ $0.cgColor })
+        
+        if orientation == .horizontal {
+            gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5);
+            gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5);
+        }
+        
+        UIGraphicsBeginImageContext(gradientLayer.bounds.size)
+        gradientLayer.render(in: UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        guard let cgImage = image?.cgImage else { return nil }
+        self.init(cgImage: cgImage)
     }
 
     

@@ -7,7 +7,7 @@
 
 import UIKit
 
-open class ThumbTextSlider: UISlider {
+public class ThumbTextSlider: UISlider {
     
     public lazy var thumbTextLabel: UILabel = {
         let lbl = UILabel()

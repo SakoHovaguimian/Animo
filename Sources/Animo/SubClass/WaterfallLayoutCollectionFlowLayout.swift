@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol WaterfallLayoutDelegate: AnyObject {
+public protocol WaterfallLayoutDelegate: AnyObject {
   func collectionView(
     _ collectionView: UICollectionView,
     heightForPhotoAtIndexPath indexPath: IndexPath) -> CGFloat
