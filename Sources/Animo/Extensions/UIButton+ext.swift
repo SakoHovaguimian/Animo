@@ -10,7 +10,7 @@ import UIKit
 @available(iOS 9.0, *)
 extension UIButton {
     
-    func applyGraident(colors: [CGColor]) {
+    public func applyGraident(colors: [CGColor]) {
         
         self.layer.sublayers?.filter({$0.name == "MyGradient"}).forEach({$0.removeFromSuperlayer()})
         let gradientLayer = CAGradientLayer()
