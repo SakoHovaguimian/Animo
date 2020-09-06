@@ -9,10 +9,15 @@ import UIKit
 
 public class GradientProgressView: UIProgressView {
     
-    private var colors: [UIColor] = [.white, .black] {
+    public var colors: [UIColor] = [.white, .black] {
         didSet {
             self.updateView()
         }
+    }
+    
+    public init(colors: [UIColor]) {
+        self.colors = colors
+        super.init(frame: .zero)
     }
     
     public init(frame: CGRect, colors: [UIColor]) {
