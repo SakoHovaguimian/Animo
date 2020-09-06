@@ -15,6 +15,12 @@ public class GradientProgressView: UIProgressView {
         }
     }
     
+    public override var progress: Float {
+        didSet {
+            self.updateView()
+        }
+    }
+    
     public init(colors: [UIColor]) {
         self.colors = colors
         super.init(frame: .zero)
