@@ -15,9 +15,9 @@ open class Parser {
     }
     
     static public func decode<T>(_ type: T.Type, from json: Any) throws -> T where T: Decodable {
-        let jsonData = try JSONSerialization.data(withJSONObject: json, options: [])
+        
+        let jsonData = try JSONSerialization.data(withJSONObject: json as! Data, options: [])
         return try JSONDecoder().decode(type, from: jsonData)
     }
-    
     
 }
