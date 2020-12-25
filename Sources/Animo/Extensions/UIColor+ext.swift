@@ -86,12 +86,12 @@ extension UIColor {
         
     }
 
-    
-    
-
-    
-    
-    
+    @available(iOS 13.0, *)
+    public convenience init(light: UIColor, dark: UIColor) {
+            self.init { trait -> UIColor in
+                return trait.userInterfaceStyle == .dark ? dark : light
+        }
+    }
     
 }
 
