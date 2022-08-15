@@ -15,4 +15,18 @@ extension UITabBar {
         return frames[index]
     }
     
+    public func addTabBarItem(unselectedImage: UIImage,
+                                     selectedImage: UIImage,
+                                     rootViewController: UIViewController,
+                                     navTintColor: UIColor = .black) -> UINavigationController {
+        
+        let nc = UINavigationController(rootViewController: rootViewController)
+        nc.tabBarItem.image = unselectedImage
+        nc.tabBarItem.selectedImage = selectedImage
+        nc.navigationBar.tintColor = navTintColor
+        
+        return nc
+        
+    }
+    
 }

@@ -95,8 +95,6 @@ public class MediaDaddy: NSObject {
         self.delegate?.didSelect(meida: url)
     }
     
-    
-    
 }
 
 extension MediaDaddy: UIImagePickerControllerDelegate {
@@ -122,6 +120,7 @@ extension MediaDaddy: UIImagePickerControllerDelegate {
         
         self.imagePickerController(picker, didSelect: nil)
     }
+    
 }
 
 extension MediaDaddy: UINavigationControllerDelegate { }

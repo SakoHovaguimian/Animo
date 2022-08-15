@@ -18,6 +18,7 @@ extension String {
     }
     
     ///Meant to be used for `testing`. Doesn't `cache` data. Please use `AlamofireImage` / `KingFisher` / `SDWebImage`
+    
     public func loadImageFromURL(completion: @escaping (UIImage?) -> ()) {
         
         DispatchQueue.main.async {

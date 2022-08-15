@@ -86,6 +86,7 @@ extension UIColor {
         
     }
 
+    //MARK:- Auto Adapt To Dark Mode and Listens to Events
     @available(iOS 13.0, *)
     public convenience init(light: UIColor, dark: UIColor) {
             self.init { trait -> UIColor in

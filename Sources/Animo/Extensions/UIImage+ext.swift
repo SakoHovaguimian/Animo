@@ -69,5 +69,4 @@ extension UIImage {
         self.init(cgImage: cgImage)
     }
 
-    
 }
